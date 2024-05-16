@@ -1,21 +1,23 @@
 <?php
 
-class Sql extends PDO{
+class Sql extends PDO {
 
     private $conn;
 
-    public function __construct(){
+    public function __construct() {
 
         $this->conn = new PDO("mysql:host=localhost;dbname=dbphp8", "root", "");
+
     }
 
-    private function setParams($statement, $parameters = array()){
+    private function setParams($statement, $parameters = array()) {
 
         foreach ($parameters as $key => $value) {
 
             $this->setParam($statement, $key, $value);
 
         }
+
     }
 
     private function setParam($statement, $key, $value){
@@ -24,7 +26,7 @@ class Sql extends PDO{
 
     }
 
-    public function execQuery($rawQuery, $params = array()){
+    public function execQuery($rawQuery, $params = array()) {
 
         $stmt = $this->conn->prepare($rawQuery);
 
@@ -33,6 +35,7 @@ class Sql extends PDO{
         $stmt->execute();
         
         return $stmt;
+
     }
 
     public function select($rawQuery, $params = array()):array
@@ -41,7 +44,9 @@ class Sql extends PDO{
         $stmt = $this->execQuery($rawQuery, $params);
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     }
+
 }
 
 ?>
