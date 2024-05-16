@@ -19,9 +19,20 @@ require_once("config.php");
 //$usuario->login("Elisandro", "Karina");
 //echo $usuario;
 
-$pessoa = new Usuario("Luiz", "bosniak");
+//INSERT
+//$pessoa = new Usuario("Luiz", "bosniak");
+//$pessoa->insert();
+//echo $pessoa;
 
-$pessoa->insert();
-
-echo $pessoa;
+//UPDATE
+//$usuario = new Usuario();
+//$usuario->loadById(16);
+//$usuario->update("Caua", "Gordura");
+/*
+//DELETE
+$usuario = new Usuario();
+$usuario->loadById(10);
+$usuario->delete();
+echo $usuario;
+*/
 ?>
